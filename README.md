@@ -70,14 +70,14 @@ Let's see briefly how code will be affected by compiler's optimizations.
 ### With -O0
 Most optimizations are disabled.
 ![](images/OptimizationLvl0.png)
-- getPointBranchFree function has 15 assembler instructions.
-- getPointBranch function has 24 assemlber instructions.
+- getPointBranchFree function has 15 instructions.
+- getPointBranch function has 24 instructions.
 
 ### With -O2
 Most optimizations are performed, e.g. inlining small functions.
 ![](images/OptimizationLvl2.png)
-- getPointBranchFree function is reduced to 6 assembler instructions.
-- getPointBranch function is reduced to 15 assembler instructions.
+- getPointBranchFree function is reduced to 6 instructions.
+- getPointBranch function is reduced to 15 instructions.
 
 ### With -O3
 Even more optimizations, e.g. all functions are considered for inlining, even if they are not declared inline.
