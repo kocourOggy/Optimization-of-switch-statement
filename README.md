@@ -117,66 +117,65 @@ g++ -std=c++11 -O3 main.cpp
 ## Program output
 ```
 Branch version: 
-f(0) = (0, 0)
-f(1) = (1, 0)
-f(2) = (1, 1)
-f(3) = (0, 1)
+0: ( 0, 0)
+1: ( 1, 0)
+2: ( 1, 1)
+3: ( 0, 1)
 -------------------------------------
 BranchFree version: 
-f(0) = (0, 0)
-f(1) = (1, 0)
-f(2) = (1, 1)
-f(3) = (0, 1)
-
+0: ( 0, 0)
+1: ( 1, 0)
+2: ( 1, 1)
+3: ( 0, 1)
 
 RANDOM SEQUENCE BENCHMARK TO COMPLICATE A CPU BRANCH PREDICTION
 ===============================================================
-sequence: 2, 1, 0, 3, 3, 3, 2, 2, 1, 0, 1, 1, 1, 1, 0, ...
+sequence: 1, 0, 1, 0, 0, 3, 3, 3, 1, 3, 0, 0, 3, 1, 1, ...
 Branch version:
-Result: (15003910,15001542), Elapsed time: 642 ms
-Result: (15003910,15001542), Elapsed time: 642 ms
-Result: (15003910,15001542), Elapsed time: 640 ms
-Result: (15003910,15001542), Elapsed time: 639 ms
-Result: (15003910,15001542), Elapsed time: 642 ms
+Result: (14996769,14997244), Elapsed time: 124 ms
+Result: (14996769,14997244), Elapsed time: 123 ms
+Result: (14996769,14997244), Elapsed time: 123 ms
+Result: (14996769,14997244), Elapsed time: 123 ms
+Result: (14996769,14997244), Elapsed time: 125 ms
 -------------------------------------
 Branch free version:
-Result: (15003910,15001542), Elapsed time: 438 ms
-Result: (15003910,15001542), Elapsed time: 439 ms
-Result: (15003910,15001542), Elapsed time: 438 ms
-Result: (15003910,15001542), Elapsed time: 438 ms
-Result: (15003910,15001542), Elapsed time: 437 ms
+Result: (14996769,14997244), Elapsed time: 21 ms
+Result: (14996769,14997244), Elapsed time: 22 ms
+Result: (14996769,14997244), Elapsed time: 31 ms
+Result: (14996769,14997244), Elapsed time: 26 ms
+Result: (14996769,14997244), Elapsed time: 20 ms
 ===============================================================
 
 PREDICTABLE SEQUENCE BENCHMARK TO SIMPLIFY A CPU BRANCH PREDICTION
 ==================================================================
 sequence: 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, ...
 Predictable sequence with pattern. Branch version:
-Result: (15000000,15000000), Elapsed time: 367 ms
-Result: (15000000,15000000), Elapsed time: 367 ms
-Result: (15000000,15000000), Elapsed time: 369 ms
-Result: (15000000,15000000), Elapsed time: 366 ms
-Result: (15000000,15000000), Elapsed time: 369 ms
+Result: (15000000,15000000), Elapsed time: 43 ms
+Result: (15000000,15000000), Elapsed time: 43 ms
+Result: (15000000,15000000), Elapsed time: 42 ms
+Result: (15000000,15000000), Elapsed time: 42 ms
+Result: (15000000,15000000), Elapsed time: 42 ms
 -------------------------------------
 Predictable sequence with pattern. Branch free version:
-Result: (15000000,15000000), Elapsed time: 437 ms
-Result: (15000000,15000000), Elapsed time: 438 ms
-Result: (15000000,15000000), Elapsed time: 438 ms
-Result: (15000000,15000000), Elapsed time: 436 ms
-Result: (15000000,15000000), Elapsed time: 437 ms
+Result: (15000000,15000000), Elapsed time: 27 ms
+Result: (15000000,15000000), Elapsed time: 23 ms
+Result: (15000000,15000000), Elapsed time: 23 ms
+Result: (15000000,15000000), Elapsed time: 23 ms
+Result: (15000000,15000000), Elapsed time: 25 ms
 -------------------------------------
 sequence: 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, ...
 Predictable sequence fill with same number. Branch version:
-Result: (30000000,30000000), Elapsed time: 371 ms
-Result: (30000000,30000000), Elapsed time: 369 ms
-Result: (30000000,30000000), Elapsed time: 367 ms
-Result: (30000000,30000000), Elapsed time: 370 ms
-Result: (30000000,30000000), Elapsed time: 368 ms
+Result: (30000000,30000000), Elapsed time: 22 ms
+Result: (30000000,30000000), Elapsed time: 25 ms
+Result: (30000000,30000000), Elapsed time: 29 ms
+Result: (30000000,30000000), Elapsed time: 27 ms
+Result: (30000000,30000000), Elapsed time: 24 ms
 -------------------------------------
 Predictable sequence fill with same number. Branch free version:
-Result: (30000000,30000000), Elapsed time: 437 ms
-Result: (30000000,30000000), Elapsed time: 439 ms
-Result: (30000000,30000000), Elapsed time: 438 ms
-Result: (30000000,30000000), Elapsed time: 438 ms
-Result: (30000000,30000000), Elapsed time: 436 ms
+Result: (30000000,30000000), Elapsed time: 23 ms
+Result: (30000000,30000000), Elapsed time: 25 ms
+Result: (30000000,30000000), Elapsed time: 25 ms
+Result: (30000000,30000000), Elapsed time: 23 ms
+Result: (30000000,30000000), Elapsed time: 23 ms
 ==================================================================
 ```
