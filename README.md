@@ -94,7 +94,7 @@ The functions were benchmarked in a following way. We generate 3 types of sequen
 ![](images/randomSequence.png)
 ### Sequence with pattern {0, 1, 2, 3, 0, 1, 2, 3, 0, 1, ...}
 ![](images/sequenceWithPattern.png)
-### Sequence with the same number {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...}
+### Sequence with the same number {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, ...}
 ![](images/sequenceWithSameNumber.png)
 
 ### Observations:
