@@ -110,7 +110,7 @@ The functions were benchmarked in a following way. We generate 3 types of sequen
 - Even though compiler with -O2 and -O3 produces same assembler code for individual getPointBranchFree and getPointBranch functions, there is still measurable performance gap between -O2 and -O3 flag.
 
 ## Conclusion
-Function without switch statement provides stable and fast performance that does not rely on branch prediction of processor. It also provides less assembler instruction that gives more opportunity to inline function and possibly start further optimization.
+Function without switch statement provides stable and fast performance that does not rely on branch prediction of processor. It also produces less assembler instruction that gives more opportunity to inline function and possibly start further optimization.
 
 ## Compilation
 ```
