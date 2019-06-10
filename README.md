@@ -12,7 +12,14 @@ Let's say we have function taking number in range [0, 3]. The function is return
 ### First solution with switch
 A straightforward solution is to use a switch statement with a case for each input. However it can affect execution speed of our program negatively.
 ```
-Give examples
+switch (index)
+{
+ default:
+  case 0: return Vector2D{0, 0};
+  case 1: return Vector2D{1, 0};
+  case 2: return Vector2D{1, 1};
+  case 3: return Vector2D{0, 1};
+}
 ```
 
 ### Problem with switch
