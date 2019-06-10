@@ -78,13 +78,13 @@ The functions were benchmarked in a following way. We generate 3 types of sequen
 
 ![](images/ImpactOfPredictions1.png)
 ### Observations:
--getPointBranchFree function gives steady performance independently of sequence types. It is due to a fact that BranchFree version doesn't rely on branch predictor.
+- getPointBranchFree function gives steady performance independently of sequence types. It is due to a fact that BranchFree version doesn't rely on branch predictor.
 
--getPointBranch function heavily depends on sequence type and does not perform stable performance.
+- getPointBranch function heavily depends on sequence type and does not perform stable performance.
 
--With -O3 optimization getPointBranch processing repeated number is nearly 5 times faster than processing random numbers.  It is due to a fact that Branch version relies on branch predictor.
+- With -O3 optimization getPointBranch processing repeated number is nearly 5 times faster than processing random numbers.  It is due to a fact that Branch version relies on branch predictor.
 
--With -O3 optimization getPointBranch can be as fast as getPointBranchFree function. However it only happens in case where the sequence repeats only the same number. In other word function with switch can be as fast as function without switch if processor can perfectly predict branches.
+- With -O3 optimization getPointBranch can be as fast as getPointBranchFree function. However it only happens in case where the sequence repeats only the same number. In other word function with switch can be as fast as function without switch if processor can perfectly predict branches.
 
 
 ![](images/randomSequence.png)
@@ -92,6 +92,7 @@ The functions were benchmarked in a following way. We generate 3 types of sequen
 ![](images/sequenceWithSameNumber.png)
 
 ### Observations:
--At first glance we see huge difference in performance between -O0 and -O2/-O3 flags.
--If minimal optimization (e.g. -O0 flag) is provided, then BranchFree version beats Branch version only in random sequence.-- 	-Even though compiler with -O2 and -O3 produces same assembler code for individual getPointBranchFree and getPointBranch functions, there is still measurable performance gap between -O2 and -O3 flag.
+- At first glance we see huge difference in performance between -O0 and -O2/-O3 flags.
+- If minimal optimization (e.g. -O0 flag) is provided, then BranchFree version beats Branch version only in random sequence.
+- Even though compiler with -O2 and -O3 produces same assembler code for individual getPointBranchFree and getPointBranch functions, there is still measurable performance gap between -O2 and -O3 flag.
 
