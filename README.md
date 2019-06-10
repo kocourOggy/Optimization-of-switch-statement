@@ -58,24 +58,28 @@ Implementation of the function with switch and without switch can be found here.
 ## Compiler translation into Assembler
 Let's see briefly how code will be affected by compiler's optimizations.
 
-### With -O0 (most optimizations are disabled)
+### With -O0
+Most optimizations are disabled.
 ![](images/OptimizationLvl0.png)
-getPointBranchFree function has 15 assembler instructions.
-getPointBranch function has 24 assemlber instructions.
+- getPointBranchFree function has 15 assembler instructions.
+- getPointBranch function has 24 assemlber instructions.
 
-### With -O2 (most optimizations are performed, e.g. inlining small functions)
+### With -O2
+Most optimizations are performed, e.g. inlining small functions.
 ![](images/OptimizationLvl2.png)
-getPointBranchFree function is reduced to 6 assembler instructions.
-getPointBranch function is reduced to 15 assembler instructions.
+- getPointBranchFree function is reduced to 6 assembler instructions.
+- getPointBranch function is reduced to 15 assembler instructions.
 
-### With -O3 (even more optimizations, e.g. all functions are considered for inlining, even if they are not declared inline)
+### With -O3
+Even more optimizations, e.g. all functions are considered for inlining, even if they are not declared inline.
 ![](images/OptimizationLvl3.png)
-There is no further optimization difference between -O2 and -O3 flag for these individual functions.
+- there is no further optimization difference between -O2 and -O3 flag for these individual functions.
 
 ## Benchmark
 
 The functions were benchmarked in a following way. We generate 3 types of sequences. Each sequence represents inputs for tested functions. The sequence is generated pseudorandomly by uniform distribution or by repeating a pattern (such as 0, 1, 2, 3, 0, 1, 2 ...) or just simply consist of single number (1, 1, 1, 1...). This approach is selected to examine impact of processor's branch prediction.
 
+### Impact of predictions
 ![](images/ImpactOfPredictions1.png)
 ### Observations:
 - getPointBranchFree function gives steady performance independently of sequence types. It is due to a fact that BranchFree version doesn't rely on branch predictor.
@@ -86,9 +90,11 @@ The functions were benchmarked in a following way. We generate 3 types of sequen
 
 - With -O3 optimization getPointBranch can be as fast as getPointBranchFree function. However it only happens in case where the sequence repeats only the same number. In other word function with switch can be as fast as function without switch if processor can perfectly predict branches.
 
-
+### Pseudorandom sequence {3, 3, 0, 0, 2, 1, 2, 2, 1, 0, ...}
 ![](images/randomSequence.png)
+### Sequence with pattern {0, 1, 2, 3, 0, 1, 2, 3, 0, 1, ...}
 ![](images/sequenceWithPattern.png)
+### Sequence with the same number {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...}
 ![](images/sequenceWithSameNumber.png)
 
 ### Observations:
