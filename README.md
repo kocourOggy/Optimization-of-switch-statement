@@ -23,7 +23,9 @@ switch (index)
 ```
 
 ### Problem with switch
-Before program instructions are executed they need to be loaded and decoded by processor. But a processor doesn't know which branch to choose ahead whenever there is a condition (e.g. an switch, if-else statement) in code. If the wrong branch is chosen then the work of loading and decoding instruction is wasted. Moreover today's processors try to execute instructions speculatively in advance even though they could choose an incorrect branch. Which means choosing a wrong branch can affect execution time a lot more. To prevent that modern processor attempt to predict the right branch based on history of choosing that branch in past.
+Before program instructions are executed they need to be loaded and decoded by processor. But a processor doesn't know which branch to choose ahead whenever there is a condition (e.g. an switch, if-else statement) in code. If the wrong branch is chosen then the work of loading and decoding instruction is wasted.
+
+Moreover today's processors try to execute instructions speculatively in advance even though they could choose an incorrect branch. Which means choosing a wrong branch can affect execution time a lot more. To prevent that modern processor attempt to predict the right branch based on history of choosing that branch in past.
 
 ## Second solution without switch
 In order to replace the switch statement, we need to rewrite input of function into bits.
