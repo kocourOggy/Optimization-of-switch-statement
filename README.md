@@ -62,7 +62,7 @@ The second bit can be extracted with right shift operation >> using 1.
 >>(0000 0011, 0000 0001) = 0000 0001 = 1
 ```
 
-Implementation of the function with switch and without switch can be found here [](https://github.com/stepaiv3/Optimization-of-switch-statement/blob/master/function.h)
+Implementation of the function with switch and without switch can be found here [a link](https://github.com/stepaiv3/Optimization-of-switch-statement/blob/master/function.h)
 
 ## Compiler translation into Assembler
 Let's see briefly how code will be affected by compiler's optimizations.
