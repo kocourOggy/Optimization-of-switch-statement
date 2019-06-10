@@ -109,3 +109,74 @@ The functions were benchmarked in a following way. We generate 3 types of sequen
 - If minimal optimization (e.g. -O0 flag) is provided, then BranchFree version beats Branch version only in random sequence.
 - Even though compiler with -O2 and -O3 produces same assembler code for individual getPointBranchFree and getPointBranch functions, there is still measurable performance gap between -O2 and -O3 flag.
 
+## Compilation
+```
+g++ -std=c++11 -O3 main.cpp
+```
+
+## Program output
+```
+Branch version: 
+f(0) = (0, 0)
+f(1) = (1, 0)
+f(2) = (1, 1)
+f(3) = (0, 1)
+-------------------------------------
+BranchFree version: 
+f(0) = (0, 0)
+f(1) = (1, 0)
+f(2) = (1, 1)
+f(3) = (0, 1)
+
+
+RANDOM SEQUENCE BENCHMARK TO COMPLICATE A CPU BRANCH PREDICTION
+===============================================================
+sequence: 2, 1, 0, 3, 3, 3, 2, 2, 1, 0, 1, 1, 1, 1, 0, ...
+Branch version:
+Result: (15003910,15001542), Elapsed time: 642 ms
+Result: (15003910,15001542), Elapsed time: 642 ms
+Result: (15003910,15001542), Elapsed time: 640 ms
+Result: (15003910,15001542), Elapsed time: 639 ms
+Result: (15003910,15001542), Elapsed time: 642 ms
+-------------------------------------
+Branch free version:
+Result: (15003910,15001542), Elapsed time: 438 ms
+Result: (15003910,15001542), Elapsed time: 439 ms
+Result: (15003910,15001542), Elapsed time: 438 ms
+Result: (15003910,15001542), Elapsed time: 438 ms
+Result: (15003910,15001542), Elapsed time: 437 ms
+===============================================================
+
+PREDICTABLE SEQUENCE BENCHMARK TO SIMPLIFY A CPU BRANCH PREDICTION
+==================================================================
+sequence: 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, ...
+Predictable sequence with pattern. Branch version:
+Result: (15000000,15000000), Elapsed time: 367 ms
+Result: (15000000,15000000), Elapsed time: 367 ms
+Result: (15000000,15000000), Elapsed time: 369 ms
+Result: (15000000,15000000), Elapsed time: 366 ms
+Result: (15000000,15000000), Elapsed time: 369 ms
+-------------------------------------
+Predictable sequence with pattern. Branch free version:
+Result: (15000000,15000000), Elapsed time: 437 ms
+Result: (15000000,15000000), Elapsed time: 438 ms
+Result: (15000000,15000000), Elapsed time: 438 ms
+Result: (15000000,15000000), Elapsed time: 436 ms
+Result: (15000000,15000000), Elapsed time: 437 ms
+-------------------------------------
+sequence: 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, ...
+Predictable sequence fill with same number. Branch version:
+Result: (30000000,30000000), Elapsed time: 371 ms
+Result: (30000000,30000000), Elapsed time: 369 ms
+Result: (30000000,30000000), Elapsed time: 367 ms
+Result: (30000000,30000000), Elapsed time: 370 ms
+Result: (30000000,30000000), Elapsed time: 368 ms
+-------------------------------------
+Predictable sequence fill with same number. Branch free version:
+Result: (30000000,30000000), Elapsed time: 437 ms
+Result: (30000000,30000000), Elapsed time: 439 ms
+Result: (30000000,30000000), Elapsed time: 438 ms
+Result: (30000000,30000000), Elapsed time: 438 ms
+Result: (30000000,30000000), Elapsed time: 436 ms
+==================================================================
+```
