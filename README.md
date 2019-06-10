@@ -14,7 +14,7 @@ A straightforward solution is to use a switch statement with a case for each inp
 ```
 switch (index)
 {
- default:
+  default:
   case 0: return Vector2D{0, 0};
   case 1: return Vector2D{1, 0};
   case 2: return Vector2D{1, 1};
@@ -29,10 +29,10 @@ Before program instructions are executed they need to be loaded and decoded by p
 In order to replace the switch statement, we need to rewrite input of function into bits.
 
 ```
-1 = 0000 0000  ==>  (0, 0)
-2 = 0000 0001  ==>  (1, 0)
-3 = 0000 0010  ==>  (1, 1)
-4 = 0000 0011  ==>  (0, 1)
+input = 0 = 0000 0000  ==>  output = (0, 0)
+input = 1 = 0000 0001  ==>  output = (1, 0)
+input = 2 = 0000 0010  ==>  output = (1, 1)
+input = 3 = 0000 0011  ==>  output = (0, 1)
 ```
 
 Immediately we can observe that the second bit of input (from right to left) corresponds to the second coordinate in output. The next not so clear observation is that the first coordinate of output is equal to XOR operation of the first and the second bit of input.
@@ -108,6 +108,9 @@ The functions were benchmarked in a following way. We generate 3 types of sequen
 - At first glance we see huge difference in performance between -O0 and -O2/-O3 flags.
 - If minimal optimization (e.g. -O0 flag) is provided, then BranchFree version beats Branch version only in random sequence.
 - Even though compiler with -O2 and -O3 produces same assembler code for individual getPointBranchFree and getPointBranch functions, there is still measurable performance gap between -O2 and -O3 flag.
+
+## Conclusion
+Function without switch statement provides stable and fast performance that does not rely on branch prediction of processor. It also provides less assembler instruction that gives more opportunity to inline function and possibly start further optimization.
 
 ## Compilation
 ```
